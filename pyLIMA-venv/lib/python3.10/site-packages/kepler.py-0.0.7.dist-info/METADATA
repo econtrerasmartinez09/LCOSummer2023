@@ -1,0 +1,65 @@
+Metadata-Version: 2.1
+Name: kepler.py
+Version: 0.0.7
+Summary: Fast and stable solver for Kepler's equation in Python
+Author-email: Dan Foreman-Mackey <foreman.mackey@gmail.com>
+License: 
+        MIT License        
+        Copyright (c) 2020-2022 Dan Foreman-Mackey        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.        
+Project-URL: Homepage, https://github.com/dfm/kepler.py
+Project-URL: Source, https://github.com/dfm/kepler.py
+Project-URL: Bug Tracker, https://github.com/dfm/kepler.py/issues
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy
+Provides-Extra: docs
+Provides-Extra: test
+Requires-Dist: pytest ; extra == 'test'
+
+Fast and stable solver for Kepler's equation extracted from [exoplanet](https://docs.exoplanet.codes).
+
+## Installation
+
+The best way to install is using pip:
+
+```bash
+python -m pip install kepler.py
+```
+
+## Usage
+
+This package exposes two functions:
+
+* `kepler`: Solves Kepler's equation and returns the cosine and sine of the true anomaly:
+
+```python
+import kepler
+eccentric_anomaly, cos_true_anomaly, sin_true_anomaly = kepler.kepler(mean_anomaly, eccentricity)
+```
+
+* `solve`: A lower-level interface that is used by `kepler` to actually do the solving (*Note that this will return garbage for eccentricities out of the range zero to one*):
+
+```python
+import kepler
+eccentric_anomaly = kepler.solve(mean_anomaly, eccentricity)
+```
