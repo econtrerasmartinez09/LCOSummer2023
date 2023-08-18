@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: fits2image
+Version: 0.4.6
+Summary: Common libraries for the conversion and scaling of fits images
+Home-page: UNKNOWN
+Author: Jon Nation
+Author-email: jnation@lcogt.net
+License: UNKNOWN
+Platform: UNKNOWN
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: astropy
+Requires-Dist: Pillow
+
+Common libraries for the conversion and scaling of fits images
+
